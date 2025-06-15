@@ -1,54 +1,54 @@
 // Number Operations
 
-// Initialize an array of numbers from 1 to 10
+// Define an array containing numbers from 1 to 10
 let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// Simulated user input to control loop repetition
+// Simulated flag to control loop repetition (as if user said "YES")
 const userRepeat = "YES";
 
-// Function using a for loop to:
-// 1. Print all numbers in the array
-// 2. Print the square of each number
+// Function to display:
+// 1. All numbers in the array
+// 2. The square of each number (number * number)
 function forLoop(arrayNumber) {
-  let output = "";         // To store normal numbers
-  let outputSquare = "";   // To store square of numbers
+  let output = "";         // Stores all numbers
+  let outputSquare = "";   // Stores the square of each number
 
   for (let i = 0; i < arrayNumber.length; i++) {
-    output = output + arrayNumber[i] + " ";                     // Add number to output
-    outputSquare = outputSquare + Math.pow(arrayNumber[i], 2) + " "; // Add square of number
+    output += arrayNumber[i] + " ";                          // Append number
+    outputSquare += Math.pow(arrayNumber[i], 2) + " ";       // Append square of number
   }
 
-  console.log(output.trim());        // Print normal numbers
-  console.log(outputSquare.trim());  // Print squared numbers
+  console.log(output.trim());        // Output all numbers
+  console.log(outputSquare.trim());  // Output squared numbers
 }
 
-// Function using a while loop to print only the odd numbers in the array
+// Function to display only odd numbers from the array using a while loop
 function whileLoop(arrayNumber) {
   let i = 0;
   let output = "";
 
   while (i < arrayNumber.length) {
-    if (arrayNumber[i] % 2 === 1) {          // Check if the number is odd
-      output = output + arrayNumber[i] + " ";
+    if (arrayNumber[i] % 2 === 1) {            // If the number is odd
+      output += arrayNumber[i] + " ";          // Append it to the output
     }
     i++;
   }
 
-  console.log(output.trim());   // Print odd numbers
+  console.log(output.trim());   // Output odd numbers
 }
 
-// Function using a do...while loop to run the above functions once
-// The loop condition is based on the userRepeat constant, and it's broken after one run
+// Function to control the program flow using a do...while loop
+// Runs the forLoop and whileLoop functions once
 function doWhileLoop(arrayNumber, userRepeat) {
-  let status = userRepeat.toUpperCase();  // Convert to uppercase for consistency
+  let status = userRepeat.toUpperCase();  // Ensure case-insensitive comparison
 
   do {
-    forLoop(arrayNumber);     // Call the for loop function
-    whileLoop(arrayNumber);   // Call the while loop function
+    forLoop(arrayNumber);     // Run the for loop operation
+    whileLoop(arrayNumber);   // Run the while loop operation
 
-    status = "NO";            // Set status to NO to break the loop after one run
+    status = "NO";            // End the loop after one run
   } while (status === userRepeat.toUpperCase());
 }
 
-// Call the main function to start the loop logic
+// Start the loop logic
 doWhileLoop(number, userRepeat);
