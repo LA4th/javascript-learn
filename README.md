@@ -13,3 +13,4 @@
 - Spread & Rest operators
 # Project Branch
 - adding number operation
+- Adding the LOOPS
