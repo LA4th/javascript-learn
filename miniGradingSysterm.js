@@ -13,16 +13,41 @@ function getGrade(score) {
 
   return gradeLetter;
 }
-console.log(getGrade(studentGrade)); // SHOW CORRECT OUTPUT
 
-function studentOutput(score) {
-  let studentGradeArray = getGrade(studentGrade);
-  
-  for(let i = 0; i < score.length; i++) {
-    while(i < studentGradeArray.length) {
-      console.log(`Student ${i + 1}: Score: ${score[i]}, Grade: ${studentGradeArray[i]}`);
-      i++;
+const studentStatus = (score, getGradeFunction) => {
+  let studentGradeArray = getGradeFunction(score);
+  let statusGrades = [];
+  for(studentGradeArrays of studentGradeArray) {
+    switch(studentGradeArrays){
+      case "A":
+        statusGrades.push("PASS");
+        break;
+      case "B":
+        statusGrades.push("PASS")
+        break;
+      case "C":
+        statusGrades.push("PASS");
+        break;
+      case "D":
+        statusGrades.push("PASS");
+        break;
+      default:
+        statusGrades.push("FAILED");
+        break;
     }
   }
+  return statusGrades;
 }
-studentOutput(studentGrade);
+
+function studentOutput(score, getGradeFunction, studentStatusFunction) {
+  let studentGradeArray = getGradeFunction(score);
+  let studentGradeStatus = studentStatusFunction(score, getGradeFunction);
+  let i = 0;
+
+  while(i < studentGradeArray.length) {
+    console.log(`Student ${i + 1}: Score: ${score[i]}, Grade: ${studentGradeArray[i]}, Status: ${studentGradeStatus[i]}`);
+
+    i++;
+  }
+}
+studentOutput(studentGrade, getGrade, studentStatus);
